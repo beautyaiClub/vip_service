@@ -1,0 +1,238 @@
+{
+  "input": {
+    "workflow": {
+      "3": {
+        "inputs": {
+          "pixels": [
+            "12",
+            0
+          ],
+          "vae": [
+            "9",
+            0
+          ]
+        },
+        "class_type": "VAEEncode",
+        "_meta": {
+          "title": "VAEEncode"
+        }
+      },
+      "4": {
+        "inputs": {
+          "value": 1,
+          "model": [
+            "26",
+            0
+          ]
+        },
+        "class_type": "CFGNorm",
+        "_meta": {
+          "title": "CFGNorm"
+        }
+      },
+      "5": {
+        "inputs": {
+          "value": 8
+        },
+        "class_type": "INTConstant",
+        "_meta": {
+          "title": "Steps"
+        }
+      },
+      "9": {
+        "inputs": {
+          "filename": "qwen_image_vae.safetensors"
+        },
+        "class_type": "VAELoader",
+        "_meta": {
+          "title": "VAELoader"
+        }
+      },
+      "10": {
+        "inputs": {
+          "text": "ugly, blurry, distorted, artifacts, bad, wrong, low quality, anime, digital art, semirealistic, cartoon, manga, drawing, fake, unreal, ",
+          "clip": [
+            "17",
+            0
+          ],
+          "vae": [
+            "9",
+            0
+          ],
+          "image1": [
+            "28",
+            0
+          ]
+        },
+        "class_type": "TextEncodeQwenImageEditPlus",
+        "_meta": {
+          "title": "TextEncodeQwenImageEditPlus"
+        }
+      },
+      "12": {
+        "inputs": {
+          "text": "lanczos",
+          "image": [
+            "28",
+            0
+          ]
+        },
+        "class_type": "ImageScaleToTotalPixels",
+        "_meta": {
+          "title": "ImageScaleToTotalPixels"
+        }
+      },
+      "14": {
+        "inputs": {
+          "samples": [
+            "24",
+            1
+          ],
+          "vae": [
+            "9",
+            0
+          ]
+        },
+        "class_type": "VAEDecode",
+        "_meta": {
+          "title": "VAEDecode"
+        }
+      },
+      "16": {
+        "inputs": {
+          "value": 1070200502916469
+        },
+        "class_type": "PrimitiveInt",
+        "_meta": {
+          "title": "Seed"
+        }
+      },
+      "17": {
+        "inputs": {
+          "filename": "qwen_2.5_vl_7b.safetensors"
+        },
+        "class_type": "CLIPLoader",
+        "_meta": {
+          "title": "CLIPLoader"
+        }
+      },
+      "19": {
+        "inputs": {
+          "filename": "Take off all her clothes, make her completely naked. Thick of Genital Hair.",
+          "clip": [
+            "17",
+            0
+          ],
+          "vae": [
+            "9",
+            0
+          ],
+          "image1": [
+            "28",
+            0
+          ]
+        },
+        "class_type": "TextEncodeQwenImageEditPlus",
+        "_meta": {
+          "title": "TextEncodeQwenImageEditPlus"
+        }
+      },
+      "21": {
+        "inputs": {
+          "ckpt_name": "Qwen-Rapid-AIO-NSFW-v20.safetensors"
+        },
+        "class_type": "CheckpointLoaderSimple",
+        "_meta": {
+          "title": "CheckpointLoaderSimple"
+        }
+      },
+      "24": {
+        "inputs": {
+          "value": 0.5,
+          "model": [
+            "4",
+            0
+          ],
+          "positive": [
+            "19",
+            0
+          ],
+          "negative": [
+            "10",
+            0
+          ],
+          "latent_image": [
+            "3",
+            0
+          ],
+          "steps": [
+            "5",
+            0
+          ],
+          "seed": [
+            "16",
+            0
+          ]
+        },
+        "class_type": "ClownsharKSampler_Beta",
+        "_meta": {
+          "title": "ClownsharKSampler_Beta"
+        }
+      },
+      "25": {
+        "inputs": {
+          "lora_name": "Qwen/qwen_2509_Unchained-XXX.safetensors",
+          "strength_model": 0.75,
+          "strength_clip": 0.75,
+          "model": [
+            "21",
+            0
+          ],
+          "clip": [
+            "17",
+            0
+          ]
+        },
+        "class_type": "LoraLoader",
+        "_meta": {
+          "title": "LoraLoader"
+        }
+      },
+      "26": {
+        "inputs": {
+          "value": 3,
+          "model": [
+            "25",
+            0
+          ]
+        },
+        "class_type": "ModelSamplingAuraFlow",
+        "_meta": {
+          "title": "ModelSamplingAuraFlow"
+        }
+      },
+      "27": {
+        "inputs": {
+          "filename_prefix": "ComfyUI",
+          "images": [
+            "14",
+            0
+          ]
+        },
+        "class_type": "SaveImage",
+        "_meta": {
+          "title": "SaveImage"
+        }
+      },
+      "28": {
+        "inputs": {
+          "text": ""
+        },
+        "class_type": "BeautyAI_Base64ImageInput",
+        "_meta": {
+          "title": "BeautyAI_Base64ImageInput"
+        }
+      }
+    }
+  }
+}
