@@ -4,7 +4,7 @@ FROM runpod/worker-comfyui:5.5.1-base
 # install custom nodes into comfyui (first node with --mode remote to fetch updated cache)
 RUN comfy node install --exit-on-fail RES4LYF --mode remote
 RUN comfy node install --exit-on-fail comfyui-kjnodes@1.2.8
-RUN git clone https://github.com/beautyaiRGS/comfyui-beautyai.git /comfyui/custom_nodes/comfyui-beautyai
+RUN git clone https://github.com/beautyaiClub/comfyui-beautyai.git /comfyui/custom_nodes/comfyui-beautyai
 
 # download models into comfyui
 RUN comfy model download --url https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors --relative-path models/vae --filename qwen_image_vae.safetensors
